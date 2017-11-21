@@ -34,7 +34,7 @@ namespace WindowsFormsApplication1
         IntPtr handle = IntPtr.Zero;
 
         Int16 dev_open = 0;  //设备是否连接
-        Int16 card_conn = 0;  //卡是否在读取的状态中
+       // Int16 card_conn = 0;  //卡是否在读取的状态中
         private bool openReader()
         {
             //连接读写器
