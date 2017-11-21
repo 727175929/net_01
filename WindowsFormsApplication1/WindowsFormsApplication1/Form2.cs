@@ -91,21 +91,8 @@ namespace WindowsFormsApplication1
         {
             button1.Enabled = false;
             //opencard(1, 2);//M1操作，对2扇区进行操作
-            //利用线程
-            System.Timers.Timer t = new System.Timers.Timer(100);//实例化Timer类，设置时间间隔
-            t.Elapsed += new System.Timers.ElapsedEventHandler(Method2);//到达时间的时候执行事件
-            t.AutoReset = true;//设置是执行一次（false）还是一直执行(true)
-            t.Enabled = true;//是否执行System.Timers.Timer.Elapsed事件
-            while (true)
-            {
-                Console.WriteLine("test_" + Thread.CurrentThread.ManagedThreadId.ToString());
-                Thread.Sleep(100);
-            }
             
-        }
-        void Method2(object source, System.Timers.ElapsedEventArgs e)
-        {
-            opencard(1, 2);
+            
         }
         private void richTextBox1_TextChanged(object sender, EventArgs e)
         {
@@ -118,6 +105,17 @@ namespace WindowsFormsApplication1
                 button1.Enabled = true;
             else
                 button1.Enabled = false;
+
+            timer1.Enabled = true;
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            opencard(1, 2);
+        }
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            timer1.Interval = 1000;//毫秒为单位
         }
     }
 }
