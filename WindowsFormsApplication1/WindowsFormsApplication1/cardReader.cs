@@ -259,6 +259,10 @@ namespace WindowsFormsApplication1
         [DllImport("mwReader.dll", EntryPoint = "mwOpenCard", SetLastError = true, CharSet = CharSet.Ansi, ExactSpelling = false, CallingConvention = CallingConvention.StdCall)]
         public static extern Int32 mwOpenCard(IntPtr icdev, byte openMode, byte[] cardUid);
 
+        //获取卡片状态
+        [DllImport("mwReader.dll", EntryPoint = "mwGetCardStatus", SetLastError = true, CharSet = CharSet.Ansi, ExactSpelling = false, CallingConvention = CallingConvention.StdCall)]
+        public static extern Int32 mwGetCardStatus(IntPtr icdev, byte slotNumber, out int status);
+
         /// <summary>
         /// 将选定的卡片置于HALT模式，需要Request All将其唤醒
         /// </summary>

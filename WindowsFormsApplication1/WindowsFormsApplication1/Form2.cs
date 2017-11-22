@@ -59,7 +59,7 @@ namespace WindowsFormsApplication1
                 newLine = "卡片已离开\n";
                 richTextBox1.Text = richTextBox1.Text.Insert(0, newLine);
                 newLine = null;
-                System.Threading.Thread.Sleep(5 * 1000);//停2秒
+               // System.Threading.Thread.Sleep(5 * 1000);//停2秒
                 timer2.Enabled = false;
                 timer1.Enabled = true;
             }
@@ -138,7 +138,7 @@ namespace WindowsFormsApplication1
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            opencard(1, 2);
+            opencard(0, 2);
         }
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -156,6 +156,13 @@ namespace WindowsFormsApplication1
             richTextBox1.Clear();
         }
 
+        private void button4_Click(object sender, EventArgs e)
+        {
+            timer1.Enabled = false;
+            timer2.Enabled = false;
+        }
+
+      
 
     }
 }
